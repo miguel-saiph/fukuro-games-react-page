@@ -1,0 +1,38 @@
+.top-banner {
+  background: #0084ff;
+  height: 62px;
+  margin: 0;
+  padding: 12px 25px;
+  clear: both;
+}
+
+.nav {
+  font-weight: 600;
+  background: #2a2a2a;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  -webkit-justify-content: space-around;
+  justify-content: space-around;
+  list-style: none;
+}
+
+.nav-set {
+  list-style: none;
+}
+
+.nav-item {
+  padding: 0;
+  margin: 0 2px;
+  display: inline-block;
+}
+
+.nav-item a {
+  color: #fff;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-size: 8.3pt;
+  margin: 0;
+  padding: 6px 11px;
+  display: inline-block;
+}

@@ -1,4 +1,16 @@
+body {
+  background: #222;
+  min-height: 100vh;
+}
+
 .App {
   margin: 1rem;
   font-family: Arial, Helvetica, sans-serif;
+  width: 80%;
+  background: #fff;
+  border: 0;
+  padding: 0 16px;
+  
+  margin-right: auto;
+  margin-left: auto;
 }
