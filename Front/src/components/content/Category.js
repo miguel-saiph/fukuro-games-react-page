@@ -7,9 +7,9 @@ const Category = ({categoryName}) => {
     <div className="category">
       <Header categoryName={categoryName} />
       <div className="game-group">
-        <GameCover />
-        <GameCover />
-        <GameCover />
+        <GameCover gameName="metroid2" />
+        <GameCover gameName="metroid2" />
+        <GameCover gameName="metroid2" />
       </div>
     </div>
   )

@@ -32,3 +32,34 @@
   margin: 0 5px 12px 0;
   position: relative;
 }
+
+.game-card img {
+  height: 250px;
+  width: 250px;
+  border: 1px solid #424242;
+  margin-right: 6px;
+  float: left;
+}
+
+.head {
+  margin: 2px 0 3px;
+  font-size: 1.2em;
+  font-weight: 700;
+  line-height: 1.1em;
+  max-height: 2.2em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 155px;
+  float: left;
+}
+
+.stats {
+  margin-top: 0;
+  border-collapse: separate;
+}
+
+tbody {
+  display: table-row-group;
+  vertical-align: middle;
+  border-color: inherit;
+}
