@@ -2,7 +2,17 @@ import React from 'react'
 import Header from './Header'
 import GameCover from './GameCover'
 
+import {
+  BrowserRouter as Router,
+  Switch, Route, Link, useParams
+} from "react-router-dom"
+
 const Category = ({categoryName}) => {
+
+  if (!categoryName)
+    categoryName = useParams().category
+  
+  console.log(categoryName);
   return (
     <div className="category">
       <Header categoryName={categoryName} />

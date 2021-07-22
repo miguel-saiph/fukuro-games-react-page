@@ -6,7 +6,7 @@ const TopBanner = () => {
   return (
     <div className="top-banner">
       <a href="/">
-        <img src={logo} alt=""></img>
+        <img src={logo} alt="" className="logo"></img>
       </a>
     </div>
   )

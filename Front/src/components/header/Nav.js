@@ -6,7 +6,7 @@ const Nav = () => {
     <div className="nav">
       <ul className="nav-set">
         <li className="nav-item">
-          <a href="/">MMO</a>
+          <a href='/categories/'>MMO</a>
         </li>
         <li className="nav-item">
           <a href="/">Strategy</a>

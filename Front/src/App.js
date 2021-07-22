@@ -6,7 +6,7 @@ import {
 import "./App.css";
 
 import Header from './components/header/Header'
-// import Game from './components/Game';
+import Game from './components/Game';
 import Content from './components/content/Content'
 
 class App extends Component{
@@ -17,8 +17,8 @@ class App extends Component{
 
         <Switch>
           <Route path="/games">
-            {/* <Game /> */}
             <h1> Hello, Games </h1>
+            <Game />
           </Route>
           <Route path="/">
             <h1> Hello, World! </h1>

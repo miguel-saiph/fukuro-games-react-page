@@ -1,9 +1,15 @@
 .top-banner {
-  background: #0084ff;
+  background: #F8AE40;
   height: 62px;
   margin: 0;
   padding: 12px 25px;
   clear: both;
+}
+
+.logo {
+  width: 270px;
+  height: 70px;
+  margin-left: -30px;
 }
 
 .nav {
