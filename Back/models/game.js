@@ -13,8 +13,15 @@ mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true, useFind
   })
 
 const gameSchema = new mongoose.Schema({
-  title: String,
-  date: Date,
+  title: {
+    type: String,
+    minlength: 4,
+    required: true
+  },
+  date: { 
+    type: Date,
+    required: true
+  },
   important: Boolean,
 })
 
