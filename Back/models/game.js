@@ -22,6 +22,10 @@ const gameSchema = new mongoose.Schema({
     type: Date,
     required: true
   },
+  categories: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Category'
+  },
   important: Boolean,
 })
 
