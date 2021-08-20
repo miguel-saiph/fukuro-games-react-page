@@ -16,7 +16,7 @@ class App extends Component{
         <Header />
 
         <Switch>
-          <Route path="/games">
+          <Route path="/games/:id">
             <h1> Hello, Games </h1>
             <Game />
           </Route>

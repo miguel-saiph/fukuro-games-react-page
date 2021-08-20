@@ -1,0 +1,10 @@
+{
+  "image": {
+    "owl": ["src/assets/images/owl.png", {
+      "type": "scale",
+      "width": 240,
+      "height": 280,
+      "detectDesktop": false
+    }]
+  }
+}
