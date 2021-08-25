@@ -4,10 +4,10 @@ import Cover from '../../images/metroid2_cover.jpg';
 
 import Category from './Category'
 
-const GameCover = ({gameName, games}) => {
+const GameCover = ({games}) => {
 
   const basePath = '../../images';
-  const coverPath = `${basePath}/${gameName}_cover.jpg`;
+  const coverPath = `${basePath}/${games[0]}_cover.jpg`;
   let urlPath = `/games/`
   
   if (games && games.length > 0) urlPath += games[0].id

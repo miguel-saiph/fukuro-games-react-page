@@ -3,12 +3,11 @@ import logo from '../../images/logo.svg';
 import TopBanner from './TopBanner'
 import Nav from './Nav'
 
-const Header = () => {
+const Header = ({categories}) => {
   return (
     <div>
-      
       <TopBanner />
-      <Nav />
+      <Nav categories={categories} />
     </div>
   )
 }

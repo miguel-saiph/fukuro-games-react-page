@@ -1,28 +1,16 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import "./header.css";
 
-const Nav = () => {
+const Nav = ({categories}) => {
+
   return (
     <div className="nav">
       <ul className="nav-set">
-        <li className="nav-item">
-          <a href='/categories/'>MMO</a>
-        </li>
-        <li className="nav-item">
-          <a href="/">Strategy</a>
-        </li>
-        <li className="nav-item">
-          <a href="/">Action</a>
-        </li>
-        <li className="nav-item">
-          <a href="/">RPG</a>
-        </li>
-        <li className="nav-item">
-          <a href="/">Adventure</a>
-        </li>
-        <li className="nav-item">
-          <a href="/">Puzzle</a>
-        </li>
+        {categories.map(category => 
+          <li key={category.id} className="nav-item">
+            <a href='/categories/'> {category.name} </a>
+          </li>
+        )}
       </ul>
     </div>
   )

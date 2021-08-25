@@ -1,5 +1,6 @@
 const gamesRouter = require('express').Router()
 const Game = require('../models/game')
+const Category = require('../models/category')
 
 gamesRouter.get('/', (request, response) => {
   Game.find({}).then(games => {
@@ -20,11 +21,17 @@ gamesRouter.post('/', (request, response) => {
     title: body.title,
     important: body.important || false,
     date: new Date(),
+    categories: body.categories
   })
 
   game.save().then(savedGame => {
-    response.json(savedGame)
+    // Updates games list in category
+    Category.updateMany({ '_id': game.categories }, { $push: { games: game._id } }).then((res) => {
+      // Return new object
+      response.json(savedGame)
+    })
   })
+  
 })
 
 gamesRouter.get('/:id', (request, response, next) => {

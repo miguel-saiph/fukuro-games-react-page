@@ -11,30 +11,38 @@ import {
   Switch, Route, Link, useParams
 } from "react-router-dom"
 
-const Category = ({categoryName}) => {
+const Category = ({categoryName, games}) => {
 
-  const [games, setGames] = useState([])
+  const gamesForCategory = 3
 
-  if (!categoryName)
-    categoryName = useParams().category
+  console.log('Games', games)
+
+  games = games.slice(0, gamesForCategory)
+
+  // const [games, setGames] = useState([])
+
+  // if (!categoryName)
+  //   categoryName = useParams().category
   
-  const hook = () => {
-    console.log('effect')
-    GameService.getAllGames().then((response) => {
-      setGames(response)
-    })
-  }
+  // const hook = () => {
+  //   console.log('effect')
+  //   GameService.getAllGames().then((response) => {
+  //     setGames(response)
+  //   })
+  // }
 
-  useEffect(hook, [])
+  // useEffect(hook, [])
   
-  console.log('games', games);
   return (
     <div className="category">
       <Header categoryName={categoryName} />
       <div className="game-group">
+        {/* <GameCover gameName="metroid2" games={games} />
         <GameCover gameName="metroid2" games={games} />
-        <GameCover gameName="metroid2" games={games} />
-        <GameCover gameName="metroid2" games={games} />
+        <GameCover gameName="metroid2" games={games} /> */}
+        {games.map(game => 
+          <GameCover key={game.id} gameName={game.title} games={games} />
+        )}
       </div>
     </div>
   )

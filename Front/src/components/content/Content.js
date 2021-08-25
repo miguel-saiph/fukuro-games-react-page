@@ -3,12 +3,14 @@ import "./Content.css";
 
 import Category from './Category'
 
-const Content = () => {
+const Content = ({categories}) => {
+  console.log('Cat: ', categories)
   return (
     <div>
-      <Category categoryName="All games" />
-      <Category categoryName="MMO" />
-      <Category categoryName="Strategy" />
+      <Category categoryName="All games" games={[]}/>
+      {categories.map(category => 
+        <Category key={category.id} categoryName={category.name} games={category.games} />
+      )}
     </div>
   )
 }

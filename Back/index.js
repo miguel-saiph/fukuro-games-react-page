@@ -3,6 +3,7 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const gamesRouter = require('./controllers/games')
+const categoriesRouter = require('./controllers/categories')
 const middleware = require('./utils/middleware')
 
 app.use(cors())
@@ -17,6 +18,7 @@ app.get('/', (request, response) => {
 app.use(middleware.requestLogger)
 
 app.use('/api/games', gamesRouter)
+app.use('/api/categories', categoriesRouter)
 
 app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
