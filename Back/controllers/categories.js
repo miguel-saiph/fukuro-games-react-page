@@ -47,4 +47,16 @@ categoriesRouter.get('/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
+categoriesRouter.get('/:name', (request, response, next) => {
+  Category.findByOne({name: request.params.name})
+    .then(category => {
+      if (category) {
+        response.json(category)
+      } else {
+        response.status(404).end() 
+      }
+    })
+    .catch(error => next(error))
+})
+
 module.exports = categoriesRouter

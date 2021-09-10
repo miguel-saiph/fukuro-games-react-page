@@ -21,7 +21,9 @@ gamesRouter.post('/', (request, response) => {
     title: body.title,
     important: body.important || false,
     date: new Date(),
-    categories: body.categories
+    categories: body.categories,
+    rating: 0,
+    plays: 0
   })
 
   game.save().then(savedGame => {
@@ -30,6 +32,8 @@ gamesRouter.post('/', (request, response) => {
       // Return new object
       response.json(savedGame)
     })
+  }).catch(e => {
+    response.json(e)
   })
   
 })

@@ -8,16 +8,22 @@ import "./App.css";
 import Header from './components/header/Header'
 import Game from './components/Game';
 import Content from './components/content/Content'
+import CategoryFull from './components/content/CategoryFull'
 
 import CategoryService from './services/CategoryService'
+import GamesService from './services/GamesService'
 
 const App = () => {
 
   const [categories, setCategories] = useState([])
+  const [games, setGames] = useState([])
 
   useEffect(() => {
     CategoryService.getAllCategories().then((categories) => {
       setCategories(categories)
+    })
+    GamesService.getAllGames().then((games) => {
+      setGames(games)
     })
   }, [])
 
@@ -30,9 +36,12 @@ const App = () => {
           <h1> Hello, Games </h1>
           <Game />
         </Route>
+        <Route path="/:category">
+          <CategoryFull categories={categories} games={games} />
+        </Route>
         <Route path="/">
           <h1> Hello, World! </h1>
-          <Content categories={categories} />
+          <Content categories={categories} games={games} />
         </Route>
       </Switch>
     </Router>

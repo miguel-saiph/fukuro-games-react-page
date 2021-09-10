@@ -15,7 +15,6 @@ const Game = () => {
     GameService.getGame(id)
     .then((response) => {
       setGame(response)
-      console.log(response)
     })
   }, [])
 

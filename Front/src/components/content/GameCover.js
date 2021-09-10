@@ -1,38 +1,49 @@
-import React from 'react'
+import React, {useState} from 'react'
 import "./Content.css";
-import Cover from '../../images/metroid2_cover.jpg';
+// import Cover from '../../images/metroid2_cover.jpg';
 
 import Category from './Category'
 
-const GameCover = ({games}) => {
+const GameCover = ({ game }) => {
+
+  const [showTitle, setShowTitle] = useState(false);
 
   const basePath = '../../images';
-  const coverPath = `${basePath}/${games[0]}_cover.jpg`;
+  const coverPath = `${basePath}/${game.id}.jpg`;
   let urlPath = `/games/`
-  
-  if (games && games.length > 0) urlPath += games[0].id
-  console.log(games[0])
+
+  if (game) urlPath += game.id
+
+  const toggleTitle = () => {
+    setShowTitle(!showTitle);
+  }
+
   return (
-    <div className="game-card">
-      <a href={urlPath}>
-        <img src={Cover} alt="" width="300" height="300"></img>
+    <li>
+      <a href={urlPath} className="game-card" 
+        onMouseEnter={() => setShowTitle(true)}
+        onMouseLeave={() => setShowTitle(false)}>
+        {showTitle ? 
+        (<div className="cover-title">{game.title}</div>) : (null)
+        }
+        <img src={coverPath} alt={game.title}></img>
       </a>
-      <div className="head"> {games && games.length > 0 ? games[0].title : '' } </div>
-      <table className="stats">
+      {/* <div className="head"> {game ? game.title : '' } </div> */}
+      {/* <table className="stats">
         <tbody>
           <tr>
             <td>
-              Rating: 99
+              Rating: {game.rating}
             </td>
           </tr>
           <tr>
             <td>
-              Plays: 105
+              Plays: {game.plays}
             </td>
           </tr>
         </tbody>
-      </table>
-    </div>
+      </table> */}
+    </li>
   )
 }
 

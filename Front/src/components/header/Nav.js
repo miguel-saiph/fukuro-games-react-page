@@ -8,7 +8,7 @@ const Nav = ({categories}) => {
       <ul className="nav-set">
         {categories.map(category => 
           <li key={category.id} className="nav-item">
-            <a href='/categories/'> {category.name} </a>
+            <a href={`/${category.name}`}> {category.name} </a>
           </li>
         )}
       </ul>

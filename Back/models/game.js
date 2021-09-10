@@ -18,6 +18,14 @@ const gameSchema = new mongoose.Schema({
     minlength: 4,
     required: true
   },
+  rating: {
+    type: Number,
+    min: 0,
+    max: 5
+  },
+  plays: {
+    type: Number
+  },
   date: { 
     type: Date,
     required: true
@@ -25,8 +33,7 @@ const gameSchema = new mongoose.Schema({
   categories: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Category'
-  }],
-  important: Boolean,
+  }]
 })
 
 gameSchema.set('toJSON', {
