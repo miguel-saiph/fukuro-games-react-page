@@ -7,15 +7,17 @@ import GameCover from './GameCover'
 import CategoryService from '../../services/CategoryService'
 
 
-const CategoryFull = ({categoryName, games}) => {
+const CategoryFull = () => {
 
   const { category } = useParams();
 
-  const [categoryFull, setCategories] = useState([])
+  const [categoryFull, setCategory] = useState([])
 
   useEffect(() => {
-    CategoryService.getAllCategories().then((categories) => {
-      setCategories(categories)
+    CategoryService.getCategoryByName(category).then((categoryFull) => {
+      setCategory(categoryFull);
+      console.log("This category: ")
+      console.log(categoryFull)
     })
   }, [])
 
@@ -23,14 +25,18 @@ const CategoryFull = ({categoryName, games}) => {
   
   return (
     <div className="category">
-      <Header categoryName={category} />
+      <Header categoryName={categoryFull.name} />
       <ul className="game-group">
         {/* <GameCover gameName="metroid2" games={games} />
         <GameCover gameName="metroid2" games={games} />
         <GameCover gameName="metroid2" games={games} /> */}
-          {games.map(game => 
+        {categoryFull.games ? (
+          categoryFull.games.map(game => 
             <GameCover key={game.id} gameName={game.title} game={game} />
-          )}
+          )
+        ) : (null)
+        }
+          
       </ul>
     </div>
   )

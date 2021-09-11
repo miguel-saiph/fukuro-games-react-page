@@ -35,6 +35,7 @@ categoriesRouter.post('/', (request, response) => {
   
 })
 
+// Get category by id
 categoriesRouter.get('/:id', (request, response, next) => {
   Category.findById(request.params.id)
     .then(category => {
@@ -47,16 +48,26 @@ categoriesRouter.get('/:id', (request, response, next) => {
     .catch(error => next(error))
 })
 
-categoriesRouter.get('/:name', (request, response, next) => {
-  Category.findByOne({name: request.params.name})
-    .then(category => {
-      if (category) {
-        response.json(category)
-      } else {
-        response.status(404).end() 
-      }
-    })
-    .catch(error => next(error))
+// Get category by name
+categoriesRouter.get('/name/:name', (request, response, next) => {
+  const _name = request.params.name;
+
+  // Category.findOne({name: new RegExp('^'+_name+'$', "i")})
+  //   .then(category => {
+  //     if (category) {
+  //       response.json(category)
+  //     } else {
+  //       response.status(404).end() 
+  //     }
+  //   })
+  //   .catch(error => next(error))
+  Category.findOne({name: new RegExp('^'+_name+'$', "i")}).populate('games').exec((err, category) => {
+    if (err) throw err;
+    if (category)
+      response.send(category)
+    else
+      response.status(404).end() 
+  })
 })
 
 module.exports = categoriesRouter

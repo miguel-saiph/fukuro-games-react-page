@@ -27,6 +27,18 @@ const getCategory = id => {
   });
 };
 
+const getCategoryByName = name => {
+  const url = `${host}/api/categories/name/${name}`
+  return axios.get(url)
+  .then(response => {
+    return response.data
+  })
+  .catch(e => {
+    console.log(e);
+    return e
+  });
+};
+
 const createCategory = data => {
   const url = `${host}/api/categories`
   return axios.post(url, data).create(data)
@@ -42,6 +54,7 @@ const createCategory = data => {
 const CategoryService = {
   getAllCategories,
   getCategory,
+  getCategoryByName,
   createCategory,
 };
 
