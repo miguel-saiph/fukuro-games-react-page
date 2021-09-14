@@ -5,10 +5,10 @@ import Nav from './Nav'
 
 const Header = ({categories}) => {
   return (
-    <div>
+    <header>
       <TopBanner />
       <Nav categories={categories} />
-    </div>
+    </header>
   )
 }
 

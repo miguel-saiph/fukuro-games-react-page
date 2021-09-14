@@ -33,14 +33,12 @@ const App = () => {
 
       <Switch>
         <Route path="/games/:id">
-          <h1> Hello, Games </h1>
           <Game />
         </Route>
         <Route path="/:category">
           <CategoryFull categories={categories} games={games} />
         </Route>
         <Route path="/">
-          <h1> Hello, World! </h1>
           <Content categories={categories} games={games} />
         </Route>
       </Switch>

@@ -1,13 +1,11 @@
 body {
-  background: #222;
+  background: #000;
   min-height: 100vh;
 
-  margin: 1rem;
   font-family: Arial, Helvetica, sans-serif;
-  width: 80%;
-  background: #fff;
+  width: 100%;
   border: 0;
-  padding: 0 16px;
+  padding: 0 0;
   
   margin-right: auto;
   margin-left: auto;
